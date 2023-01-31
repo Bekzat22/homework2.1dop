@@ -1,4 +1,4 @@
-public class Animal {
+public class Animal implements Printable {
     private String name;
 
     public String getName() {
