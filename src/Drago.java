@@ -1,4 +1,4 @@
-public class Drago extends Animal implements Printable{
+public class Drago extends Animal {
     private  String ability;
     private int age;
 
