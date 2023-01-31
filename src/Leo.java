@@ -1,23 +1,31 @@
-public final  class Leo extends cat {
+public final  class Leo extends Animal implements Printable{
     private String type;
-
-    public Partner getPartner() {
-        return partner;
-    }
-
+    private int speed;
     private Partner partner;
-    public Leo(String name, String breed, int speed,String type,Partner partner) {
-        super(name, breed, speed);
+
+
+    public Leo(String name,String type,int speed,Partner partner) {
+        super(name);
         this.type=type;
+        this.speed=speed;
         this.partner=partner;
-    }
-    public String makeVoice(String voice){
-        voice="roar";
-        return voice;
     }
 
 
     public String getType() {
         return type;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public Partner getPartner() {
+        return partner;
+    }
+
+    @Override
+    public void print() {
+        System.out.println(getName()+" "+getType()+" "+getPartner().getPrint()+" "+getSpeed());
     }
 }

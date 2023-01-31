@@ -1,31 +1,41 @@
 
-//Основная ДЗ
-//        a)  Создать иерархию из 3х классов (1й -> 2й -> 3й уровень иерархии), последний 3й класс сделать не наследуемым
-//        b)  Все поля классов должны быть приватными, одно из полей должно быть сложного типа созданного вами же (4й класс), одно из полей сделать сложного типа (enum)
-//        c)  В классах не должно быть setter-ов, только getter-ы и конструкторы
-//        d)  Добавить перегруженные методы (2-3 шт.) в класс 2-го уровня иерархии, один из них сделать неперезаписываемым
-//        e)  В классе 3-го уровня перезаписать один из методов родителя
-//        f)  В главном классе (Main) Создать объект класса 2-го уровня (objectA) и 2 объекта класса 3-го уровня (objectB, objectC),
-//        также распечатать все свойства объектов и вызвать перегруженные методы через каждый из экземпляров ваших объекто
-
+//Доп ДЗ:
+//        b) Создать 2х уровневую иерархию из 4х классов (1й - родитель --> 2й, 3й, 4й - дочерние, с отличающимися полями).
+//        c) Создать Интерфейс Printable с методом void print();
+//        d) Реализовать интерфейс Printable классами 2й, 3й и 4й,
+//        переопределить метод интерфейса так чтобы он распечатывал всю информацию о свойствах объекта.
+//        e) В классе Main создать возвращаемый метод createObject(String className),
+//        который умеет создавать объекты класса 2й, 3й и 4й и после создания и задания
+//        свойств объекту метод возвращает ссылку на объект (пульт). Можно использовать switch
+//        для того чтоб определить какого типа нужно создать экземпляр объекта.
+//        Например если в параметре передается “2й” метод должен создать объект именно этого типа.
+//        f) В главном классе Main создать 3 различных объекта классов
+//        2й, 3й и 4й с помощью метода createOcject, и распечатать по ним информацию методом print();
 public class Main {
     public static void main(String[] args) {
-        cat objectA=new cat("Leo","hunter",70);
-        Leo objectB=new Leo("cheetah","hunter",27,"loyal",new Partner(Print.Blue));
-        Leo objectC=new Leo("spinky","domestic",12,"tricky",new Partner(Print.Black));
-        cat[] anm={objectB,objectA,objectC};
-        for (cat cat: anm) {
-
-            if(cat instanceof Leo){
-                System.out.println(cat.getName()+" "+cat.getBreed()+" " +cat.makeVoice(" ")+" "+cat.getSpeed()+
-                        " "+((Leo) cat).getPartner().getPrint()+" "+((Leo) cat).getType());
-            }
-            else {
-                System.out.println(cat.getName()+" "+cat.getBreed()+" " +cat.makeVoice(" ")+" "+cat.getSpeed());
-            }
+        createObjects("Leo");
+        createObjects("cat");
+        createObjects("Drago");
 
 
         }
+        public static String createObjects(String classname){
+        switch (classname){
+            case"Leo":
+                Leo leo =new Leo("leo","domestic",50,new Partner(Print.Blue));
+                leo.print();
+                break;
+            case "cat":
+                cat cat =new cat("cat","hunter",20);
+                cat.print();
+                break;
+            case "Drago":
+                Drago drago=new Drago("Drago","fire",250);
+                drago.print();
+                break;
+        }
+        return null;
+
 
         }
 

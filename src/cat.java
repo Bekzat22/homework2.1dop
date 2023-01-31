@@ -1,4 +1,4 @@
-public class cat extends Animal {
+public class cat extends Animal implements Printable {
     private String breed;
     private int speed;
 
@@ -22,5 +22,11 @@ public class cat extends Animal {
 
     public int getSpeed() {
         return speed;
+    }
+
+    @Override
+    public void print() {
+        System.out.println(getName()+" "+getBreed()+" "+getSpeed()+ " "+makeVoice(" "));
+
     }
 }
