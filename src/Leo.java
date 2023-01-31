@@ -1,4 +1,4 @@
-public final  class Leo extends Animal implements Printable{
+public final  class Leo extends Animal{
     private String type;
     private int speed;
     private Partner partner;
