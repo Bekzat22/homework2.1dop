@@ -1,4 +1,4 @@
-public class cat extends Animal implements Printable {
+public class cat extends Animal  {
     private String breed;
     private int speed;
 
